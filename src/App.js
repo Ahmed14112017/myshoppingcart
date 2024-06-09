@@ -6,7 +6,7 @@ import Store from './component/Store';
 import About from './component/About';
 import Layout from './component/Layout';
 import ShopingCartProvider from './Context/ShopingCartcontext';
-// Hello Mina
+// Hello Minass
 function App() {
   return (
     <ShopingCartProvider>
