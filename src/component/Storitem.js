@@ -24,9 +24,9 @@ export default function Storitem({items}) {
                     <Button className='w-100' onClick={()=>increasecart(items.id)}>Add to Cart</Button>
                 ):<div className='d-flex align-items-center flex-column' >
                     <div className='d-flex justify-content-center align-items-center '>
-                        <Button onClick={()=>increasecart(items.id)} className='m-2'>-</Button>
+                        <Button onClick={()=>decreasecart(items.id)} className='m-2'>-</Button>
                         <span> {quntity} in cart</span>
-                        <Button onClick={()=>decreasecart(items.id)} className='m-2'>+</Button>
+                        <Button onClick={()=>increasecart(items.id)} className='m-2'>+</Button>
                     </div>
                     <Button onClick={()=>removefromcart(items.id)} variant='danger' size='sm'>Remove</Button>
                     </div>}
