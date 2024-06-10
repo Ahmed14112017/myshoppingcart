@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import Cartsideitem from "../component/Cartsideitem";
 
 const ShopingCartcontext = createContext({});
 
@@ -57,7 +58,7 @@ const ShopingCartProvider = ({ children }) => {
             value={{ Cartitem, getitemsquantity, increasecart, decreasecart, removefromcart }}
         >
             {children}
-            <Cartsideitem />
+            <Cartsideitem  />
         </ShopingCartcontext.Provider>
     );
 };
