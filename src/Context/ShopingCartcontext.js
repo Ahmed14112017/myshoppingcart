@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import Cartsideitem from "../component/Cartsideitem";
+import Cartsideitem from "../component/Shoppingcart";
 
 const ShopingCartcontext = createContext({});
 
