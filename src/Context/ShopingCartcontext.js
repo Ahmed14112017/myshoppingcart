@@ -27,8 +27,9 @@ const ShopingCartProvider = ({ children }) => {
 
     const decreasecart = (id) => {
         Setcartitem((prevstate) => {
-            if (prevstate.find((item) => item.id === id)?.quantity === 1) {
+            if (prevstate.find((item) => item.id === id)?.quantity === 0) {
                 return prevstate.filter((item) => item.id !== id);
+                
             } else {
                 return prevstate.map((item) => {
                     if (item.id === id) {
@@ -36,9 +37,13 @@ const ShopingCartProvider = ({ children }) => {
                     } else {
                         return item;
                     }
+
                 });
+               
             }
+            
         });
+        console.log(Cartitem)
     };
 
     const removefromcart = (id) => {
