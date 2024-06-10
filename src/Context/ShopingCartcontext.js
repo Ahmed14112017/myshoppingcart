@@ -57,6 +57,7 @@ const ShopingCartProvider = ({ children }) => {
             value={{ Cartitem, getitemsquantity, increasecart, decreasecart, removefromcart }}
         >
             {children}
+            <Cartsideitem />
         </ShopingCartcontext.Provider>
     );
 };
