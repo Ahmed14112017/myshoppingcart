@@ -1,10 +1,17 @@
 import { createContext, useContext, useState } from "react";
-import Cartsideitem from "../component/Shoppingcart";
+import Shoppingcart from "../component/Shoppingcart";
 
 const ShopingCartcontext = createContext({});
 
 const ShopingCartProvider = ({ children }) => {
     const [Cartitem, Setcartitem] = useState([]);
+    const [isopen,Setisopen]=useState(false);
+    const open=()=>{
+        Setisopen(true)
+    }
+    const close=()=>{
+        Setisopen(false)
+    }
 
     const getitemsquantity = (id) => {
         return Cartitem.find((item) => item.id === id)?.quantity || 0;
@@ -52,13 +59,14 @@ const ShopingCartProvider = ({ children }) => {
             return prevstate.filter((item) => item.id !== id);
         });
     };
+    const cartquantity=Cartitem.reduce((quantity,item)=>item.quantity+quantity,0) 
 
     return (
         <ShopingCartcontext.Provider
-            value={{ Cartitem, getitemsquantity, increasecart, decreasecart, removefromcart }}
+            value={{ Cartitem, getitemsquantity, increasecart, decreasecart, removefromcart ,open,close,cartquantity}}
         >
             {children}
-            <Cartsideitem  />
+            <Shoppingcart op={isopen}/>
         </ShopingCartcontext.Provider>
     );
 };

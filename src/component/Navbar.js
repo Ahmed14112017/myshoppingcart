@@ -2,8 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Container, Nav, Navbar as Navbarps ,Button } from 'react-bootstrap'
 import { CiShoppingCart } from "react-icons/ci";
+import { useShopingcart } from '../Context/ShopingCartcontext';
 
 export default function Navbar() {
+  const {open,cartquantity}=useShopingcart()
   return (
     <Navbarps sticky='top' className='bg-white shadow-sm mb-3'>
         <Container>
@@ -12,11 +14,11 @@ export default function Navbar() {
             <Nav.Link to="Store"as={NavLink}>Store</Nav.Link>
             <Nav.Link to="About"as={NavLink}>About</Nav.Link>
             </Nav>
-            <Button variant='outline-primary' className='rounded-circle 'style={{width:"3rem",height:"3rem",position:"relative"}}>
+            <Button onClick={()=>open()} variant='outline-primary' className='rounded-circle 'style={{width:"3rem",height:"3rem",position:"relative"}}>
             
             <CiShoppingCart style={{display:"flex",fontSize:"20px"}} />
             <div className='bg-danger rounded-circle d-flex justify-content-center' style={{position:"absolute",width:"20px",color:"white",bottom:"0",right:"0",transform:"translate(25%,25%)" }}>
-                3
+                {cartquantity}
             </div>
 
             </Button>
